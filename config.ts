@@ -4,6 +4,7 @@ const Config = {
         redis: {
 		HOST: env.REDIS_HOST || 'redis',
 		PORT: env.REDIS_PORT || 6379,
+                PASSWORD: env.REDIS_PASSWORD || '',
 	},
 	mysql: {
 		HOST: env.MYSQL_HOST || 'mysql',
@@ -17,6 +18,9 @@ const Config = {
 		USER: env.PGUSER || 'nodeapp',
 		DATABASE: env.PGDATABASE || 'app_dev',
 	},
+        app: {
+                PORT: env.PORT || 3000,
+        },
 }
 
 export default Config

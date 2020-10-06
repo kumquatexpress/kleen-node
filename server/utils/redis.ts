@@ -6,7 +6,8 @@ export default redis.createClient(
 	`${config.redis.HOST}:${config.redis.PORT}`,
 	{
 		usePromise: true,
-		database: 1
+		database: 1,
+                authPass: `${config.redis.PASSWORD}`,
 	},
 )
 

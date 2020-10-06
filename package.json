@@ -5,7 +5,9 @@
   "version": "0.0.1",
   "main": "./build/app.js",
   "scripts": {
-    "start": "pm2 start --no-daemon --name server gulp -- develop"
+    "start": "node ./build/app.js",
+    "dev": "pm2 start --no-daemon --name server gulp -- develop",
+    "build": "tsc --project ./"
   },
   "dependencies": {
     "bluebird": "^3.5.32",
@@ -16,7 +18,7 @@
     "thunk-redis": "^2.1.2"
   },
   "engines": {
-    "node": "14.11.3"
+    "node": "12.18.4"
   },
   "devDependencies": {
     "@types/bluebird": "^3.5.32",

@@ -5,7 +5,7 @@ import config from '../../config';
 Promise.promisifyAll(require("mysql/lib/Connection").prototype)
 Promise.promisifyAll(require("mysql/lib/Pool").prototype)
 
-const pool = mysql.createPool({
+const pool: any = mysql.createPool({
   host     : config.mysql.HOST,
   user     : config.mysql.USER,
   password : config.mysql.PASSWORD,
@@ -14,20 +14,20 @@ const pool = mysql.createPool({
 })
 
 const _getConn = function() {
-	return pool.getConnectionAsync().disposer(connection => {
+	return pool.getConnectionAsync().disposer((connection: any) => {
   	    connection.release()
 	})
 }
 
 const query = function(_query, binds={}) {
 	console.log('MYSQL:', _query, binds)
-	return Promise.using(_getConn(), conn => {
+	return Promise.using(_getConn(), (conn: any) => {
 		return conn.queryAsync(_query, binds)
 	})
 }
 
 const startTransaction = function(fn){
-	return Promise.using(_getConn(), conn => {
+	return Promise.using(_getConn(), (conn: any) => {
 		return conn.query('START TRANSACTION')
 			.then(() => {
 				return fn(conn)
