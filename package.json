@@ -13,7 +13,7 @@
     "bluebird": "^3.5.32",
     "koa": "^2.11.4",
     "koa-router": "^7.4.0",
-    "lodash": "^4.14.161",
+    "lodash": "^4.17.21",
     "mysql": "^2.15.15",
     "nodemon": "^2.0.4",
     "save-dev": "0.0.1-security",
